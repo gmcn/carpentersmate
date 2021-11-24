@@ -1,8 +1,180 @@
 footer {
-  background: #000;
-  padding: 5px;
-  color: #fff;
-  a {
-    color: pink
+  background: #fff;
+  color: #636363;
+  border-top: 5px solid $blue;
+
+  h5 {
+    font-weight: 800;
+    font-size: 1.1em;
+    color: $blue;
+    border-bottom: 1px solid $blue;
+    padding-bottom: 25px;
   }
+
+  ul {
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+
+      padding: 15px 0;
+      border-bottom: 1px solid $blue;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+
+      font-weight: 400;
+
+      span {
+        color: $blue;
+        // font-weight: 200;
+        display: block;
+      }
+
+    }
+
+  }
+
+  .footer__contact {
+
+
+    li.address {
+      background: url(images/address_icon.svg) no-repeat 0 35%;
+      // list-style-image: url(images/address_icon.svg);
+      padding-left: 25px;
+      // list-style-position: inside;
+
+    }
+
+    li.phone {
+      list-style-image: url(images/phone_icon.svg);
+      list-style-position: inside;
+    }
+
+    li.email {
+      list-style-image: url(images/mail_icon.svg);
+      list-style-position: inside;
+    }
+
+    ul.social {
+      li {
+        border-bottom: 0;
+        display: inline-block;
+        margin-right: 15px
+      }
+    }
+
+  }
+
+
+
+  .footer__nav {
+
+
+    ul {
+
+      li {
+        list-style-image: url(images/footer-nav_style.svg);
+        list-style-position: inside;
+      }
+
+    }
+
+
+  }
+
+  .site-footer {
+
+    padding: 50px 15px;
+    font-size: .9em;
+
+    form {
+
+      p {
+
+        font-size: 13px;
+        line-height: 1em;
+
+      }
+
+      a {
+        font-weight: 600;
+        color: $blue;
+      }
+
+    }
+
+    .wpcf7-list-item-label {
+      display: none;
+    }
+
+    .wpcf7-checkbox {
+
+      .wpcf7-list-item {
+        margin-left: 0;
+      }
+
+    }
+
+    &__branding {
+      padding-bottom: 30px;
+    }
+
+  }
+
+  img {
+    max-height: 75px;
+    margin-right: 40px;
+  }
+
+  a {
+    color: #636363;
+
+    &:hover {
+      color: $yellow;
+    }
+
+  }
+
+  svg {
+
+    margin: 25px;
+    @include md {
+      margin: 0;
+    }
+
+  }
+
+  .signature {
+    background: $blue;
+    color: #fff;
+    padding: 25px 0;
+    font-size: .8em;
+
+    text-align: center;
+    @include md {
+      text-align: left;
+    }
+
+    a {
+      color: #fff;
+
+      &:hover {
+        color: $yellow;
+      }
+
+    }
+
+    &_links {
+      text-align: center;
+      @include md {
+        text-align: right;
+      }
+    }
+
+  }
+
 }

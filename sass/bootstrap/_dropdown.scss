@@ -22,7 +22,7 @@
   display: none; // none by default, but block on "open" of the menu
   float: left;
   min-width: $dropdown-min-width;
-  padding: $dropdown-padding-y 0;
+  padding: 0;
   margin: $dropdown-spacer 0 0; // override default ul
   @include font-size($dropdown-font-size);
   color: $dropdown-color;
@@ -30,9 +30,31 @@
   list-style: none;
   background-color: $dropdown-bg;
   background-clip: padding-box;
-  border: $dropdown-border-width solid $dropdown-border-color;
-  @include border-radius($dropdown-border-radius);
+  // border: $dropdown-border-width solid $dropdown-border-color;
   @include box-shadow($dropdown-box-shadow);
+
+  li {
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid transparent;
+    transition: .5s;
+
+    &:hover {
+
+      border-left: 2px solid $yellow;
+
+    }
+
+    a {
+      color: $blue;
+      font-size: .9em;
+    }
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+
+  }
+
 }
 
 @each $breakpoint in map-keys($grid-breakpoints) {

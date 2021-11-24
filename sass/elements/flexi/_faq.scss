@@ -1,0 +1,75 @@
+.faq {
+
+  margin: 25px 0;
+
+  @include md {
+    margin: 55px 0;
+  }
+
+  @include lg {
+    margin: 110px 0;
+  }
+
+  h2 {
+    color: $blue;
+    font-size: 1.9em;
+    margin-bottom: 30px;
+  }
+
+  p {
+    margin-bottom: 20px;
+
+    @include md {
+      margin-bottom: 40px;
+    }
+
+    @include lg {
+      margin-bottom: 80px;
+    }
+
+  }
+
+  &_faqs {
+    p {
+      margin-bottom: 5px;
+    }
+  }
+
+
+
+  .card {
+    border: none;
+  }
+
+  a.btn {
+
+    background: #FAFAFA url(images/faq_open.svg) 95% 50% no-repeat;
+    border: 2px solid $yellow;
+    color: $yellow !important;
+
+    width: 100%;
+    text-align: left;
+    font-weight: 800;
+    padding: 10px;
+    transition: .5s;
+    font-size: .8em;
+
+    @include md {
+      font-size: 1em;
+    }
+
+    &:active {
+      background: #FAFAFA url(images/faq_open.svg) 95% 50% no-repeat;
+      border: 2px solid $yellow;
+      color: $yellow !important;
+    }
+
+    &.collapsed {
+      background: #FAFAFA url(images/faq_closed.svg) 95% 50% no-repeat;
+      color: #959595 !important;
+      border: 2px solid #FAFAFA;
+    }
+
+  }
+
+}

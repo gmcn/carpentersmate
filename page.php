@@ -14,25 +14,70 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<?php if (!is_front_page()): ?>
+		<?php include('template-parts/content-page.php'); ?>
+	<?php endif; ?>
 
-			<?php
-			while ( have_posts() ) : the_post();
+	<?php include('template-parts/content-flexi.php'); ?>
 
-				get_template_part( 'template-parts/content', 'page' );
+	<?php if (is_page('find-a-stockist')): ?>
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+		<div class="container-fluid stockists">
+			<div class="container">
 
-			endwhile; // End of the loop.
-			?>
+			    <h2>Find your local stockist</h2>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+					<div class="bh-sl-container">
+
+						<div class="bh-sl-form-container">
+							<form id="bh-sl-user-location" method="post" action="#">
+
+									<input type="text" id="bh-sl-address" name="bh-sl-address" placeholder="Enter Town/City/Postcode" />
+
+									<!-- <button id="bh-sl-submit" onclick="document.location+='#stockistResults';"  type="submit">Search</button> -->
+
+									<button id="bh-sl-submit" type="submit">Search</button>
+
+							</form>
+						</div>
+					</div>
+
+			<a name="stockistResults"></a>
+
+			</div>
+		</div>
+
+
+		<div class="loadingDiv hidden">
+		  <div class="vert-align">
+		    <!-- <img src="<?php echo get_template_directory_uri() ?>/images/loading.gif" alt="Loading"> -->
+		  </div>
+		</div>
+
+
+		<div class="bh-sl-container">
+
+		  <div id="bh-sl-map-container" class="bh-sl-map-container" style="position: relative; height: 100vh;">
+		    <div id="bh-sl-map" class="bh-sl-map" style="height: 100vh;">
+
+				</div>
+
+				<div class="container bh-sl-loc-list" >
+					<h1>Search Results</h1>
+
+					<ul class="list"></ul>
+
+				</div>
+
+		  </div>
+		</div>
+
+
+
+
+		<script src="https://maps.google.com/maps/api/js?key=AIzaSyAfU2hsPF_D_DwXwxr8QEk2NU_RPzBO4YA&region=UK"></script>
+	<?php endif; ?>
 
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();

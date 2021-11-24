@@ -1,0 +1,57 @@
+.section-testimonials {
+  position: relative;
+  padding: 35px;
+  background: $yellow;
+  color: $blue;
+  text-align: center;
+
+  h2 {
+    // margin-bottom: 65px;
+  }
+
+  .swiper-slide {
+
+    padding: 0 10%;
+    line-height: 1.8em;
+    text-align: center;
+    font-weight: 700;
+
+    p {
+      background: url(images/testimonial-bg.svg) center center no-repeat;
+      padding: 65px;
+      min-height: 130px;
+    }
+
+    p.byline {
+      color: $blue;
+      text-transform: uppercase;
+      font-size: 1.2em;
+      font-style: normal;
+      background: none;
+      min-height: 0;
+      padding: 0;
+    }
+
+    p.byline-company {
+      color: #fff;
+      font-weight: 300;
+      font-size: 1.2em;
+      font-style: normal;
+      background: none;
+      min-height: 0;
+      padding: 0;
+    }
+
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    color: #fff;
+    transition: .5s;
+
+    &:hover {
+      color: $blue;
+    }
+
+  }
+
+}

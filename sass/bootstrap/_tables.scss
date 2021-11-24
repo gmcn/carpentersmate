@@ -10,7 +10,8 @@
 
   th,
   td {
-    padding: $table-cell-padding;
+    text-transform: uppercase;
+    padding: .3rem;
     vertical-align: top;
     border-top: $table-border-width solid $table-border-color;
   }
@@ -54,6 +55,8 @@
     th,
     td {
       border-bottom-width: 2 * $table-border-width;
+      color: #fff;
+      background-color: $blue;
     }
   }
 }
@@ -85,8 +88,8 @@
 .table-hover {
   tbody tr {
     @include hover() {
-      color: $table-hover-color;
-      background-color: $table-hover-bg;
+      color: #fff;
+      background-color: $blue;
     }
   }
 }

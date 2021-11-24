@@ -13,7 +13,43 @@
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	// margin: 1.5em 0 0;
+	padding: 30px;
+	margin-bottom: 40px;
+
+	h1 {
+		color: #363636;
+		font-size: 1.5em;
+		width: 80%;
+	}
+
+	a.more {
+		background-color: $blue;
+		display: inline-block;
+		padding: 10px 30px;
+		color: #fff;
+		font-weight: 400;
+		text-transform: uppercase;
+		color: #fff;
+		font-weight: 700;
+		text-align: center;
+		border-radius: 5px;
+		border: 2px solid #fff;
+
+		&:hover {
+			background: $yellow;
+			color: #fff;
+		}
+
+	}
+
+
+	.single_post__meta {
+		text-align: left;
+		margin-top: 25px;
+		padding-bottom: 15px;
+	}
+
 }
 
 .page-links {

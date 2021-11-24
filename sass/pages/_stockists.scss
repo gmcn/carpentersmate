@@ -1,0 +1,210 @@
+.stockists {
+  background: $blue;
+  color: #fff;
+  padding: 90px;
+
+  h2 {
+    color: #fff;
+    margin-bottom: 40px;
+  }
+
+  &_recommend_btn {
+
+    background: $blue;
+    padding: 50px 15px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: $yellow;
+
+    span {
+      padding: 15px;
+      font-size: 1.5em;
+    }
+
+    a {
+      color: $blue;
+      background: $yellow;
+      text-transform: uppercase;
+      border-radius: 5px;
+      padding: 15px;
+      float: right;
+
+      &:hover {
+        background: #fff;
+      }
+    }
+
+  }
+
+  &_become_btn {
+
+    background: $yellow;
+    padding: 50px 15px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: $blue;
+
+    span {
+      padding: 15px;
+      font-size: 1.5em;
+    }
+
+    a {
+      float: right;
+      color: $yellow;
+      background: $blue;
+      text-transform: uppercase;
+      border-radius: 5px;
+      padding: 15px;
+
+      &:hover {
+        background: #fff;
+      }
+    }
+
+  }
+
+}
+
+
+
+
+
+.bh-sl-map {
+
+  @include lg {
+    height: 100vh;
+  }
+
+}
+
+.bh-sl-form-container {
+
+  input {
+    background: transparent;
+    border: 1px solid #fff;
+    width: 75%;
+    color: #fff;
+    font-weight: 300;
+
+    &:focus {
+      color: #fff;
+    }
+
+  }
+
+  ::placeholder {
+    font-weight: 300;
+    color: #fff;
+
+  }
+
+  button {
+    // text-transform: uppercase;
+    background: $yellow;
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    width: 24%;
+  }
+
+}
+
+.bh-sl-loc-list {
+
+  padding: 50px 35px 0 35px !important;
+  overflow: scroll;
+  background: rgba(#fff, .9);
+  height: 50vh;
+  // overflow: hidden;
+
+  .loc-name {
+    font-weight: 800;
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+
+  .loc-city {
+    font-weight: 300;
+    font-size: .9em;
+    margin-bottom: 20px;
+  }
+
+  .loc-phone {
+
+    a {
+      color: #636363;
+
+      &:hover {
+
+        color: $blue;
+
+      }
+    }
+
+
+  }
+
+  .loc-web, .loc-directions {
+
+    svg {
+      margin-bottom: 5px;
+    }
+
+    a {
+      font-size: .8em;
+    }
+
+  }
+
+  h1 {
+    color: #363636;
+    font-size: 1.8em;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #EBEBEB;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    // background: #fff !important;
+    margin-bottom: 25px;
+    color: $blue;
+
+    a {
+      color: $blue;
+
+      &:hover {
+
+        font-weight: 600;
+
+      }
+
+    }
+
+  }
+
+  a {
+    display: block;
+  }
+
+  @include md {
+    position: absolute;
+    top: 0;
+    width: 470px !important;
+    height: 100vh;
+  }
+
+  .loc-web, .loc-directions {
+    text-align: center;
+  }
+
+
+}

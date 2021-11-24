@@ -1,14 +1,14 @@
 /*!
-Theme Name: starter-theme
-Theme URI: http://underscores.me/
-Author: Underscores.me
-Author URI: http://underscores.me/
-Description: Description
+Theme Name: Carpenters Mate
+Theme URI: http://carpentersmate.com/
+Author: Gary @ Creative Media
+Author URI: http://creativemediani.com/
+Description: Custom build WP theme
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
-Text Domain: starter-theme
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Text Domain: carpentersmate.com
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -87,6 +87,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "modules/clearings";
 
 /*--------------------------------------------------------------
+# Woo
+--------------------------------------------------------------*/
+@import "site/woocommerce";
+
+/*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
 @import "site/secondary/widgets";
@@ -109,7 +114,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Homepage
 --------------------------------------------------------------*/
-@import "pages/home";
+@import "pages/page";
+@import "pages/stockists";
 
 /*--------------------------------------------------------------
 # Content

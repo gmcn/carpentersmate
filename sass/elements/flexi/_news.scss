@@ -1,0 +1,276 @@
+.blog {
+
+  .content-page_header {
+
+    margin-bottom: 25px;
+
+    @include md {
+      margin-bottom: 50px;
+    }
+
+    @include lg {
+      margin-bottom: 100px;
+    }
+
+  }
+
+
+}
+
+.section-news {
+
+  color: #fff;
+  background: #FAFAFA;
+
+  padding: 20px 0;
+
+  @include md {
+    padding: 40px 0;
+  }
+
+
+  @include lg {
+    padding: 80px 0;
+  }
+
+
+  h2 {
+    color: $blue;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  p {
+    color: pink;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #707070;
+    font-size: .9em;
+  }
+
+  &_article {
+    padding: 140px 50px 80px 50px !important;
+    position: relative;
+
+    p {
+      text-align: left;
+      color: #fff;
+      margin-bottom: 0;
+      font-size: 1em;
+    }
+
+
+    &:before {
+      content: "";
+      background: rgba(#000, .5);
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    h3 {
+
+      font-size: 30px;
+      margin-bottom: 1em;
+      color: #fff;
+
+      @include md {
+        width: 80%;
+      }
+
+    }
+
+    &__date {
+      background: #363636;
+      border-radius: 5px 0 0 5px;
+      text-align: center;
+      line-height: 1.3em;
+      padding: 10px 0;
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(#fff, .5);
+      text-transform: uppercase;
+      span {
+        display: block;
+        line-height: 1em;
+        font-size: 1.8em;
+      }
+    }
+
+    &__comment {
+      text-align: center;
+      background: $yellow;
+      border-radius: 0 5px 5px 0;
+      text-align: center;
+      padding: 5px 0;
+      line-height: 1.3em;
+
+      svg {
+        margin-top: 5px;
+        margin: 0 auto;
+      }
+    }
+
+
+    a {
+      background-color: transparant;
+      margin-top: 30px;
+      display: inline-block;
+      padding: 12px 22px;
+      color: #fff;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 700;
+      text-align: center;
+      border-radius: 5px;
+      border: 2px solid #fff;
+
+      &:hover {
+        background: $blue;
+        color: #fff;
+        // border: 2px solid $blue;
+      }
+
+    }
+
+  }
+
+
+}
+
+
+.single_post {
+
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 25px;
+  }
+
+  &__meta {
+
+    color: #C2C2C2;
+    text-align: center;
+    border-bottom: 1px solid #EBEBEB;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+
+    strong {
+      color: #636363;
+    }
+
+  }
+
+  &__featured {
+
+    max-height: 700px;
+    overflow: hidden;
+
+    margin: 25px 0 25px 0;
+
+    @include md {
+      margin: 50px 0 30px 0;
+    }
+
+    @include lg {
+      margin: 100px 0 60px 0;
+    }
+
+
+  }
+
+  h2, h3, h4, h5, h6 {
+
+    font-size: 1.15em;
+
+  }
+
+  p, h2, h3, h4, h5, h6 {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  &__navigation {
+    border-top: 1px solid #B8B8B8;
+    margin-top: 50px;
+    padding-top: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 50px;
+
+    text-align: center;
+
+    @include lg {
+      text-align: left;
+    }
+
+    &__share {
+
+      text-align: center;
+      margin-top: 25px;
+
+      @include lg {
+        margin-top: 0;
+        text-align: right;
+      }
+
+      span {
+        margin-right: 30px;
+        text-transform: uppercase;
+        color: #363636;
+        font-weight: 600;
+      }
+
+      svg {
+
+        #bg, path {
+          transition: .5s
+        }
+
+        &:hover {
+
+          path {
+            fill: #fff;
+          }
+
+          #bg {
+            fill: $yellow;
+          }
+
+
+
+        }
+
+      }
+
+    }
+
+    a.back {
+      background-color: $blue;
+      padding: 12px 22px;
+      color: #fff;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 700;
+      text-align: center;
+      border-radius: 5px;
+      border: 2px solid #fff;
+
+      &:hover {
+        background: $yellow;
+        color: #fff;
+        // border: 2px solid $blue;
+      }
+
+    }
+
+  }
+
+}

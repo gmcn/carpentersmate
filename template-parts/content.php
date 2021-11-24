@@ -9,30 +9,35 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_single() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+<article id="post-<?php the_ID(); ?>" class="col-md-6">
 
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php starting_theme_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
-	</header><!-- .entry-header -->
+	<img src="<?php echo get_the_post_thumbnail_url() ?>" alt="">
 
-	<div class="entry-content">
+	<div class="entry-content" style="background: #FAFAFA;">
+
+		<header class="entry-header">
+			<h1><?php the_title(); ?></h1>
+
+			<div class="single_post__meta">
+
+				<strong>By:</strong> <?php echo get_author_name(); ?>  |  <strong>Posted:</strong> <?php echo the_date('y/m/Y'); ?>
+
+			</div>
+
+
+		</header><!-- .entry-header -->
+
+
+		<?php echo the_excerpt(); ?>
+
+		<a class="more" href="<?php echo the_permalink(); ?>">Read More</a>
+
 		<?php
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'starting-theme' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
+			// the_content( sprintf(
+			// 	/* translators: %s: Name of current post. */
+			// 	wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'starting-theme' ), array( 'span' => array( 'class' => array() ) ) ),
+			// 	the_title( '<span class="screen-reader-text">"', '"</span>', false )
+			// ) );
 
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'starting-theme' ),
@@ -41,7 +46,4 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php starting_theme_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

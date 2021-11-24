@@ -14,21 +14,31 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<header class="container-fluid content-page_header">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					Latest News
+				</div>
+				<div class="col-md-4 content-page_header__breadcrumbs align-self-center">
+					<?php
+						if ( function_exists('yoast_breadcrumb') ) {
+						  yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+						}
+						?>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="container content-area">
+		<div class="row" role="main">
 
 		<?php
-		if ( have_posts() ) :
+		if ( have_posts() ) : ?>
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-
-			<?php
-			endif;
-
-			/* Start the Loop */
+		<?php 	/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
 				/*
@@ -48,9 +58,9 @@ get_header(); ?>
 
 		endif; ?>
 
-		</main><!-- #main -->
+	</div><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();

@@ -1,0 +1,86 @@
+.section-copy {
+
+  line-height: 1.8em;
+  margin: 25px 0;
+
+  @include md {
+    margin: 55px 0;
+  }
+
+  @include lg {
+    margin: 110px 0;
+  }
+
+  h2 {
+
+    color: $blue;
+    padding-bottom: 25px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #b8b8b8;
+
+
+  }
+
+  a.button {
+    transition: .5s;
+    background-color: $blue;
+    padding: 10px 18px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid $blue;
+    margin-top: 25px;
+    display: inline-block;
+
+    &:hover {
+      background-color: $yellow;
+    }
+
+
+  }
+
+  &__points__point {
+
+    margin-bottom: 25px;
+    color: #707070;
+
+    p.title {
+      transition: .5s;
+      color: #000;
+      display: block;
+      font-weight: 600;
+      font-size: 1.2em;
+
+    }
+
+    circle, path, span.title {
+      transition: .5s;
+    }
+
+    &:hover {
+
+      p.title {
+
+        color: $yellow;
+
+
+      }
+
+      circle {
+        stroke: $yellow;
+        fill: $yellow;
+      }
+
+      path {
+        fill: #fff;
+      }
+
+    }
+
+  }
+
+
+
+}

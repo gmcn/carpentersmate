@@ -1,0 +1,186 @@
+.heroSwiper {
+
+  height: 40vh;
+
+  @include md {
+    height: 50vh;
+  }
+
+  @include lg {
+    height: 80vh;
+  }
+
+  overflow: hidden;
+  color: #fff;
+  position: relative;
+
+  .swiper-slide {
+
+    position: relative;
+
+    video {
+
+      @include md_down {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+    }
+
+
+
+
+    &__content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+
+      span {
+        display: block;
+        font-size: .55em;
+        text-transform: none;
+        line-height: 1em;
+        font-weight: 800;
+      }
+
+      text-align: center;
+      line-height: .8em;
+      text-transform: uppercase;
+      color: #fff;
+      // width: 70%;
+      margin: 0 0 15px 0;
+      font-weight: 900;
+      font-size: 38px;
+
+      @include md {
+        text-align: left;
+        width: 50%;
+        font-size: 45px;
+        margin: 0 0 25px 0;
+
+      }
+
+      @include lg {
+
+        font-size: 80px;
+
+      }
+
+    }
+
+    a {
+
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 700;
+      padding: 10px 20px;
+      display: inline-block;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: .7em;
+      width: 100%;
+      text-align: center;
+
+      @include md {
+        padding: 15px 20px;
+      }
+
+      @include lg {
+        font-size: 1em;
+        margin-bottom: 0;
+        width: auto;
+      }
+
+      &:nth-of-type(1) {
+        background: $yellow;
+        &:hover {
+          background: #fff;
+          color: $blue;
+        }
+      }
+
+      &:nth-of-type(2) {
+        background: $blue;
+        &:hover {
+          background: #fff;
+          color: $blue;
+        }
+      }
+
+    }
+
+  }
+
+
+
+  p {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1em;
+
+    @include md {
+
+      font-size: 22px;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    @include lg {
+      width: 45%;
+      font-size: 28px;
+    }
+
+  }
+
+  .swiper-button-prev {
+
+    color: rgba(#fff, .5);
+    transition: .5s;
+    left: 0;
+
+    width: 50px;
+    padding: 30px;
+
+    border-radius: 0 5px 5px 0;
+
+    @include lg {
+      width: 100px;
+      padding: 50px;
+    }
+
+    &:hover {
+      background: $yellow;
+      color: rgba(#fff, 1);
+    }
+
+  }
+
+  .swiper-button-next {
+
+    color: rgba(#fff, .5);
+    transition: .5s;
+    right: 0;
+    width: 50px;
+    padding: 30px;
+
+    @include lg {
+      width: 100px;
+      padding: 50px;
+    }
+
+    border-radius: 5px 0 0 5px;
+
+    &:hover {
+      background: $yellow;
+      color: rgba(#fff, 1);
+    }
+
+  }
+
+}

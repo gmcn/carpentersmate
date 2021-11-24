@@ -1,5 +1,6 @@
 html {
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 *,
@@ -31,3 +32,21 @@ figure {
 }
 
 @import "tables";
+
+.wpcf7-submit {
+	background-color: $blue;
+	color: #fff;
+	font-weight: 800;
+}
+
+/*--------------------------------------------------------------
+# flexi
+--------------------------------------------------------------*/
+@import "flexi/hero";
+@import "flexi/cta-bar";
+@import "flexi/products";
+@import "flexi/section-testimonials";
+@import "flexi/section-videos";
+@import "flexi/news";
+@import "flexi/faq";
+@import "flexi/section-copy";

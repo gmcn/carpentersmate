@@ -13,21 +13,41 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
-textarea {
+textarea,
+select {
 	color: $color__text-input;
-	border: 1px solid $color__border-input;
-	border-radius: 3px;
-	padding: 3px;
+	border: 1px solid $blue;
+	border-radius: 5px;
+	padding: 12px 15px;
+	color: #363636;
+	font-weight: 800;
+	max-width: 100%;
 
 	&:focus {
 		color: $color__text-input-focus;
 	}
 }
 
+::placeholder {
+	color: $color__text-input;
+	font-weight: 800;
+}
+
 select {
 	border: 1px solid $color__border-input;
+	width: 100%;
 }
 
 textarea {
 	width: 100%;
+}
+
+input[type="email"] {
+
+	background: #fff url(images/email_icon.svg) no-repeat 95% 50%;
+
+}
+
+.wpcf7-list-item {
+	margin: 0;
 }

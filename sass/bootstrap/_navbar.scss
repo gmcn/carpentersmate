@@ -21,7 +21,7 @@
   flex-wrap: wrap; // allow us to do the line break for collapsing content
   align-items: center;
   justify-content: space-between; // space out brand from logo
-  padding: $navbar-padding-y $navbar-padding-x;
+  // padding: $navbar-padding-y $navbar-padding-x;
 
   // Because flex properties aren't inherited, we need to redeclare these first
   // few properties so that content nested within behave properly.
@@ -138,6 +138,7 @@
   content: "";
   background: no-repeat center center;
   background-size: 100% 100%;
+  background-image: escape-svg($navbar-light-toggler-icon-bg);
 }
 
 // Generate series of `.navbar-expand-*` responsive classes for configuring
@@ -231,7 +232,7 @@
 
   .navbar-nav {
     .nav-link {
-      color: $navbar-light-color;
+      color: #fff;
 
       @include hover-focus() {
         color: $navbar-light-hover-color;
@@ -283,10 +284,14 @@
 
   .navbar-nav {
     .nav-link {
-      color: $navbar-dark-color;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
 
       @include hover-focus() {
-        color: $navbar-dark-hover-color;
+        // color: $navbar-dark-hover-color;
+        background: $yellow;
       }
 
       &.disabled {

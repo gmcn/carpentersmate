@@ -42,9 +42,30 @@ function starting_theme_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	add_image_size( 'product-thumb', 270, 270 );
+
+	// get YouTube cover image
+
+	function parse_youtube_url($url, $return = 'thumb')
+	{
+		$id = end(explode('embed/',$url));
+		$id = reset(explode('&', $id));
+
+		if($return == 'thumb'){
+			return 'http://i1.ytimg.com/vi/'.$id.'/default.jpg';
+		}
+		else if($return == 'hqthumb'){
+			return 'http://i1.ytimg.com/vi/'.$id.'/maxresdefault.jpg';
+		}
+		else{
+			return $id;
+		}
+	}
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'starting-theme' ),
+		'footer' => esc_html__( 'Footer Menu', 'starting-theme' ),
 	) );
 
 	/*
@@ -89,15 +110,27 @@ add_action( 'after_setup_theme', 'starting_theme_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function starting_theme_widgets_init() {
+	// register_sidebar( array(
+	// 	'name'          => esc_html__( 'Sidebar', 'starting-theme' ),
+	// 	'id'            => 'sidebar-1',
+	// 	'description'   => esc_html__( 'Add widgets here.', 'starting-theme' ),
+	// 	'before_widget' => '<section id="%1$s" class="widget %2$s">',
+	// 	'after_widget'  => '</section>',
+	// 	'before_title'  => '<h2 class="widget-title">',
+	// 	'after_title'   => '</h2>',
+	// ) );
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'starting-theme' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'starting-theme' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+	  'before_widget' => '<div class="row"><div class="col-md-12"><div class="panel-group widget %2$s" id="accordion%1$s" role="tablist" aria-multiselectable="true"><div class="panel panel-default">',
+	  'after_widget'  => '</div></div></div></div>',
+	  'before_title'  => '<div class="panel-heading" role="tab" id="heading"><h2 class="widget-title"><a role="button" class="collapsed" data-toggle="collapse" href="#collapse" aria-expanded="true" aria-controls="collapse">',
+	  'after_title'   => '</a></h2></div><div id="collapse" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading"><div class="panel-body">',
 	) );
+
+
 }
 add_action( 'widgets_init', 'starting_theme_widgets_init' );
 
@@ -112,6 +145,11 @@ function starting_theme_scripts() {
 	wp_enqueue_script( 'fancybox-pack', get_template_directory_uri() . '/js/jquery.fancybox.pack.js', array(), '2.1.7', true );
 	wp_enqueue_script( 'cookieconsent', get_template_directory_uri() . '/js/cookieconsent.min.js', array(), '3.1.0', true );
 	wp_enqueue_script( 'swiper-js', get_template_directory_uri() . '/js/swiper-bundle.min.js', array(), '6.2.0', true );
+
+	wp_enqueue_script( 'handlebars', get_template_directory_uri() . '/js/libs/handlebars.min.js', array(), '3.0.1', true );
+	wp_enqueue_script( 'storelocator', get_template_directory_uri() . '/js/plugins/storeLocator/jquery.storelocator.js', array(), '3.0.1', true );
+
+
 	wp_enqueue_script( 'functions-js', get_template_directory_uri() . '/js/functions.js', array(), '0.1', true );
 	wp_enqueue_script( 'wow-js', get_template_directory_uri() . '/js/wow.min.js', array(), '0.1', true );
 	wp_enqueue_script( 'matchHeight-js', get_template_directory_uri() . '/js/jquery.matchHeight.js', array(), '0.7.2', true );
@@ -150,10 +188,9 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-
 //add data-toggle class and dropdown-toggle to parent anchor link
 function addanchorlink_class($menu) {
-    $menu = preg_replace('/ href="#"/','/ href="#" class="dropdown-toggle" data-toggle="dropdown" /',$menu);
+    $menu = preg_replace('/ href="#"/','/ href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" /',$menu);
     return $menu;
 }
 
@@ -200,6 +237,19 @@ function cf_search_where( $where ) {
 add_filter( 'posts_where', 'cf_search_where' );
 
 /**
+ * Prevent duplicates
+ * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_distinct
+ */
+function cf_search_distinct( $where ) {
+    global $wpdb;
+    if ( is_search() ) {
+        return "DISTINCT";
+    }
+    return $where;
+}
+add_filter( 'posts_distinct', 'cf_search_distinct' );
+
+/**
  * Code to add the custom login css file to the theme
  * - file is "/login/custom-login-styles.css"
  */
@@ -207,107 +257,6 @@ function my_custom_login() {
 echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/login/custom-login-styles.css" />';
 }
 add_action('login_head', 'my_custom_login');
-
-// Register Custom Post Type
-// function projects_post_type() {
-//
-// 	$labels = array(
-// 		'name'                  => _x( 'Projects', 'Post Type General Name', 'text_domain' ),
-// 		'singular_name'         => _x( 'Project', 'Post Type Singular Name', 'text_domain' ),
-// 		'menu_name'             => __( 'Projects', 'text_domain' ),
-// 		'name_admin_bar'        => __( 'Project', 'text_domain' ),
-// 		'archives'              => __( 'Item Archives', 'text_domain' ),
-// 		'attributes'            => __( 'Item Attributes', 'text_domain' ),
-// 		'parent_item_colon'     => __( 'Parent Item:', 'text_domain' ),
-// 		'all_items'             => __( 'All Items', 'text_domain' ),
-// 		'add_new_item'          => __( 'Add New Item', 'text_domain' ),
-// 		'add_new'               => __( 'Add New', 'text_domain' ),
-// 		'new_item'              => __( 'New Item', 'text_domain' ),
-// 		'edit_item'             => __( 'Edit Item', 'text_domain' ),
-// 		'update_item'           => __( 'Update Item', 'text_domain' ),
-// 		'view_item'             => __( 'View Item', 'text_domain' ),
-// 		'view_items'            => __( 'View Items', 'text_domain' ),
-// 		'search_items'          => __( 'Search Item', 'text_domain' ),
-// 		'not_found'             => __( 'Not found', 'text_domain' ),
-// 		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-// 		'featured_image'        => __( 'Featured Image', 'text_domain' ),
-// 		'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
-// 		'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
-// 		'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
-// 		'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
-// 		'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
-// 		'items_list'            => __( 'Items list', 'text_domain' ),
-// 		'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
-// 		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
-// 	);
-// 	$args = array(
-// 		'label'                 => __( 'Project', 'text_domain' ),
-// 		'description'           => __( 'Projects information page.', 'text_domain' ),
-// 		'labels'                => $labels,
-// 		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'revisions', 'featured' ),
-// 		'taxonomies'            => array( 'category' ),
-// 		'hierarchical'          => false,
-// 		'public'                => true,
-// 		'show_ui'               => true,
-// 		'show_in_menu'          => true,
-// 		'menu_position'         => 5,
-// 		'menu_icon'             => 'dashicons-clipboard',
-// 		'show_in_admin_bar'     => true,
-// 		'show_in_nav_menus'     => true,
-// 		'can_export'            => true,
-// 		'has_archive'           => true,
-// 		'exclude_from_search'   => false,
-// 		'publicly_queryable'    => true,
-// 		'capability_type'       => 'page',
-// 	);
-// 	register_post_type( 'projects', $args );
-//
-// }
-// add_action( 'init', 'projects_post_type', 0 );
-//
-// add_action( 'init', 'projects_taxonomies', 0 );
-//
-// function projects_taxonomies() {
-//
-//     // Product Type Taxonomy
-//     $product_cat_labels = array(
-//         'name'          => 'Project Category',
-//         'singular_name' => 'Project Category',
-//         'menu_name'     => 'Project Categories'
-//     );
-//
-//     $product_cat_args = array(
-//         'labels'                     => $product_cat_labels,
-//         'hierarchical'               => true,
-//         'public'                     => true,
-//         'show_ui'                    => true,
-//         'show_admin_column'          => true,
-//         'show_in_nav_menus'          => true,
-//         'show_tagcloud'              => true,
-//         'rewrite'                    => array('pages' => true)
-//     );
-//     register_taxonomy( 'projects_category', array( 'projects' ), $product_cat_args );
-//
-// 		// Product Type Taxonomy
-//     $product_type_labels = array(
-//         'name'          => 'Project Type',
-//         'singular_name' => 'Project Type',
-//         'menu_name'     => 'Project Types'
-//     );
-//
-//     $product_type_args = array(
-//         'labels'                     => $product_type_labels,
-//         'hierarchical'               => true,
-//         'public'                     => true,
-//         'show_ui'                    => true,
-//         'show_admin_column'          => true,
-//         'show_in_nav_menus'          => true,
-//         'show_tagcloud'              => true,
-//         'rewrite'                    => array('pages' => true)
-//     );
-//     register_taxonomy( 'projects_type', array( 'projects' ), $product_type_args );
-//
-// }
 
 // bootstrap 4 support
 
@@ -318,6 +267,25 @@ function register_navwalker(){
 	require_once get_template_directory() . '/functions/class-wp-bootstrap-navwalker.php';
 }
 add_action( 'after_setup_theme', 'register_navwalker' );
+
+// acf options section
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page();
+}
+
+/**
+ * Woocommerce Support
+ */
+
+require_once get_template_directory() . '/functions/woocommerce.php';
+
+/**
+ * distributors cpt
+ */
+
+require_once get_template_directory() . '/functions/distributors.php';
+
 
 // SVG support for remove_featured_image
 function cc_mime_types($mimes) {

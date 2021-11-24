@@ -1,3 +1,390 @@
 @import "buttons";
 
 @import "fields";
+
+.comments-area {
+  background: #FAFAFA;
+  padding-top: 120px;
+
+
+  h2.comments-title {
+    text-align: center;
+    font-size: 26px;
+    color: #363636;
+    margin-bottom: 25px;
+  }
+
+  .comment-respond {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .says {
+    display: none;
+  }
+
+  .comment-list {
+    list-style: none;
+    // padding: 0;
+    padding-left: 10%;
+    padding-right: 10%;
+    // margin: 0;
+
+    li {
+      list-style: none;
+    }
+
+    article {
+      margin-top: 50px;
+    }
+
+  }
+
+  .comment-author {
+    font-weight: 600;
+    margin-right: 15px;
+  }
+
+  .comment-metadata a {
+    color: #C2C2C2;
+  }
+
+  .comment-metadata, .comment-author {
+    float: left;
+  }
+
+  .comment-content {
+    display: block;
+    clear: both;
+  }
+
+  .comment-author {
+    img {
+      display: none;
+    }
+  }
+
+  .comment-reply-link {
+    background: $blue !important;
+    text-transform: none !important;
+    border-radius: 5px !important;
+    padding: 10px 25px !important;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 15px 40px;
+    border: none;
+    color: #fff;
+
+    &:hover {
+      background: $yellow;
+    }
+
+  }
+
+  footer {
+    border-top: 0;
+    background: none;
+  }
+
+}
+
+.comment-reply-title, p.comment-notes {
+  text-align: center;
+}
+
+.comment-form {
+
+  margin: 0 auto;
+
+  .comment-form-email, .comment-form-author {
+     text-align: center;
+    label {
+      display: none;
+    }
+  }
+
+  input[type=submit] {
+    background: $blue !important;
+    text-transform: none !important;
+    border-radius: 5px !important;
+    padding: 15px 25px !important;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 15px 40px;
+    border: none;
+    color: #fff;
+
+    &:hover {
+      background: $yellow;
+    }
+
+  }
+
+	input, textarea {
+    border: 1px solid #EBEBEB;
+    background: #FAFAFA;
+    color: #363636;
+    &:focus {
+      padding-left: 10px;
+      background: #FFFFFF;
+			color: #000;
+    }
+  }
+
+	p.form-submit {
+
+		.submit {
+			background: none;
+			border: none;
+			border-radius: 0;
+			display: inherit;
+			// color: $color_secondary;
+			text-transform: uppercase;
+			font-weight: 600;
+			font-family: 'Montserrat', sans-serif;
+			font-size: 1em;
+			padding: 10px 0;
+			// border-bottom: 1px solid  $color_secondary;
+			&:hover {
+				color: #000;
+				// border-bottom: 3px solid $color_secondary;
+			}
+		}
+
+	}
+
+  .comment-meta {
+    border-top:  none !important;
+  }
+
+}
+
+.form-samples {
+  background: $blue;
+  color: #fff;
+  font-size: 13px;
+
+  padding: 20px 0;
+
+  @include md {
+    padding: 45px 0;
+  }
+
+  @include lg {
+    padding: 90px 0;
+  }
+
+  h2 {
+    color: #fff;
+  }
+
+  ::placeholder {
+  	color: #fff;
+  	font-weight: 300;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="password"],
+  input[type="search"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="range"],
+  input[type="date"],
+  input[type="month"],
+  input[type="week"],
+  input[type="time"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="color"] {
+    background: $blue;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 20px 15px;
+    font-weight: 300;
+  }
+
+  input[type="checkbox"] {
+
+    margin-right: 5px;
+
+  }
+
+  .wpcf7-submit {
+    background-color: $yellow;
+    text-transform: none;
+    font-size: 16px;
+    transition: .5s;
+
+    &:hover {
+      color: $blue;
+      background: #fff
+    }
+
+  }
+
+}
+
+.form_contact {
+
+  p {
+
+    color: #fff;
+
+  }
+
+  input, textarea {
+    background: #FAFAFA;
+    border: 1px solid #EBEBEB;
+    font-weight: 300;
+    color: #363636;
+
+    &:focus {
+      border: 1px solid $yellow;
+      background: #fff;
+      color: #363636;
+    }
+
+  }
+
+  input[type=submit] {
+    background: $blue;
+    text-transform: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 15px 40px;
+    border: none;
+    color: #fff;
+
+    &:hover {
+      background: $yellow;
+    }
+
+  }
+
+  .checkbox-consent {
+    font-size: 14px;
+  }
+
+  input[type=checkbox] {
+    margin-right: 5px;
+  }
+
+  label {
+    color: #787878;
+    font-size: .9em;
+  }
+
+  ::placeholder {
+    color: #C2C2C2;
+    font-weight: 300;
+  }
+
+}
+
+.form_newsletter {
+
+  margin: 50px 0 0 0;
+
+  p {
+
+    color: #fff;
+
+  }
+
+  input, textarea {
+    background: #FAFAFA;
+    border: 1px solid #EBEBEB;
+    font-weight: 300;
+    color: #363636;
+
+    &:focus {
+      border: 1px solid $yellow;
+      background: #fff;
+      color: #363636;
+    }
+
+  }
+
+  input[type=submit] {
+    background: $blue;
+    text-transform: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 15px 40px;
+    border: none;
+    color: #fff;
+
+    &:hover {
+      background: $yellow;
+    }
+
+  }
+
+  input[type=checkbox] {
+    margin-right: 5px;
+  }
+
+  label {
+    color: #787878;
+    font-size: .9em;
+  }
+
+  ::placeholder {
+    color: #C2C2C2;
+    font-weight: 300;
+  }
+
+}
+
+.form_recommend {
+  padding: 30px 30px 20px 30px !important;
+
+  p {
+
+    color: #fff;
+
+  }
+
+  h3 {
+    color: #fff;
+    margin-bottom: 25px;
+  }
+
+  input, textarea {
+    background: $blue;
+    border: 1px solid #fff;
+    font-weight: 300;
+    color: #fff;
+  }
+
+  input[type=submit] {
+    background: $yellow;
+    text-transform: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 15px 40px;
+    border: none;
+  }
+
+  input[type=checkbox] {
+    margin-right: 5px;
+  }
+
+  label {
+    color: #fff;
+    font-size: .8em;
+  }
+
+  ::placeholder {
+    color: #fff;
+    font-weight: 300;
+  }
+
+  background: $blue;
+
+
+}
