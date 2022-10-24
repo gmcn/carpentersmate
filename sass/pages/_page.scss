@@ -39,9 +39,9 @@
     padding: 65px 0;
   }
 
-  @include lg {
-    padding: 125px 0;
-  }
+  // @include lg {
+  //   padding: 125px 0;
+  // }
 
   h1 {
     color: $blue;
@@ -58,11 +58,17 @@
 
 }
 
+.button_recommend {
+  margin-top: 90px;
+  margin-bottom: 90px;
+}
+
 .content-contact {
 
 
   .button_recommend {
     margin-top: 90px;
+    margin-bottom: 0;
   }
 
   ul {

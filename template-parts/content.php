@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" class="col-md-6">
 
-	<img src="<?php echo get_the_post_thumbnail_url() ?>" alt="">
+	<img src="<?php echo get_the_post_thumbnail_url() ?>" alt="<?php echo the_title(); ?>" loading="lazy">
 
 	<div class="entry-content" style="background: #FAFAFA;">
 

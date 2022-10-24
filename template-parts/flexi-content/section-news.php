@@ -7,9 +7,6 @@
   </div>
   <div class="row">
 
-
-
-
     <?php
     $args = array(
       'post_type' => 'post',
@@ -41,10 +38,6 @@
                 </div>
 
 
-
-
-
-
               </div>
               <div class="col-9 col-lg-9 offset-lg-1">
                 <h3><?php the_title(); ?></h3>
@@ -60,5 +53,12 @@
     <?php endif; ?>
 
     <?php wp_reset_postdata(); ?>
+
+    <div class="container" style="text-align: center;">
+      <a class="more" href="/news">See More</a>
+    </div>
+
+
+
   </div>
 </section>

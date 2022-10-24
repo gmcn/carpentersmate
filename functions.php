@@ -139,7 +139,7 @@ add_action( 'widgets_init', 'starting_theme_widgets_init' );
  */
 function starting_theme_scripts() {
 	wp_enqueue_style( 'starting-theme-style', get_stylesheet_uri() );
-	wp_enqueue_script( 'jquery-3.5.1', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), '3.5.1', true );
+	wp_enqueue_script( 'jquery-3.5.1', 'https://code.jquery.com/jquery-3.5.1.js', array(), '3.5.1', true );
 	wp_enqueue_script( 'starting-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.js', array(), '2.1.7', true );
 	wp_enqueue_script( 'fancybox-pack', get_template_directory_uri() . '/js/jquery.fancybox.pack.js', array(), '2.1.7', true );
@@ -156,6 +156,14 @@ function starting_theme_scripts() {
 	wp_enqueue_script( 'popper-js', get_template_directory_uri() . '/js/popper.min.js', array(), '1.16.1', true );
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '4.5.2', true );
 	wp_enqueue_script( 'starting-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+	wp_register_script( 'core-js', get_template_directory_uri() . '/js/core.js');
+	wp_enqueue_script( 'core-js' );
+
+	wp_localize_script( 'core-js', 'ajax_posts', array(
+		    'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		    'noposts' => __('No older posts found', 'twentyfifteen'),
+		));
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -273,6 +281,12 @@ add_action( 'after_setup_theme', 'register_navwalker' );
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page();
 }
+
+/**
+ * ajax load more
+ */
+
+require_once get_template_directory() . '/functions/news.php';
 
 /**
  * Woocommerce Support

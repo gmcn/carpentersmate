@@ -76,6 +76,32 @@ get_header(); ?>
 
 
 		<script src="https://maps.google.com/maps/api/js?key=AIzaSyAfU2hsPF_D_DwXwxr8QEk2NU_RPzBO4YA&region=UK"></script>
+
+
+
+		<div class="container">
+			<div class="row button_recommend">
+
+				<div class="col-md-6">
+					<div class="stockists_become_btn">
+						<span>Recommend a stockist</span>
+						<a href="/stockists/recommend-a-stockist/">Click Here</a>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="stockists_recommend_btn">
+						<span>Become a Stockist</span>
+						<a href="/stockists/become-a-stockist/">Click Here</a>
+					</div>
+				</div>
+
+			</div>
+			
+		</div>
+
+
+
 	<?php endif; ?>
 
 <?php

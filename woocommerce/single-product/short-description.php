@@ -59,9 +59,14 @@ if ( ! $short_description ) {
 
 <?php
 	$attributes = $product->get_attributes();
+
+
+	if ($attributes) :
+
 	$available_variations = $product->get_available_variations();
 
 	$prod_desc = $prod_variation['variation_description'];
+	
  ?>
 
 <table class="table table-striped table-hover table-bordered varations-table tablesorter">
@@ -167,3 +172,5 @@ if ( ! $short_description ) {
 		<?php endforeach;?>
 		</tbody>
 </table>
+
+<?php endif; ?>

@@ -139,6 +139,25 @@
 
   }
 
+  a.more {
+    background: $blue;
+    color: #fff;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 55px;
+    display: inline-block;
+    text-align: center;
+    letter-spacing: 1px;
+
+    &:hover {
+      background: $yellow;
+    }
+
+  }
+
 
 }
 

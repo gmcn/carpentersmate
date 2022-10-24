@@ -24,6 +24,19 @@ function woocommerce_gallery() {
     add_theme_support( 'wc-product-gallery-slider' );
 }
 
+add_filter('woocommerce_get_catalog_ordering_args', 'custom_woocommerce_get_catalog_ordering_args');
+
+function custom_woocommerce_get_catalog_ordering_args($args)
+{
+    $orderby_value = isset($_GET['orderby']) ? wc_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
+
+    if ('recommended' == $orderby_value) {
+        $args['orderby']  = ['menu_order' => 'DESC', 'meta_value_num' => 'DESC'];
+        $args['meta_key'] = 'total_sales';
+    }
+
+    return $args;
+}
 
 
 function woocommerce_product_layout_method($classes) {

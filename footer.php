@@ -19,9 +19,9 @@
 			<div class="row site-footer__branding">
 				<div class="col-12">
 						<a href="/">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/carpenters-mate-logo_colour.png" alt="">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/carpenters-mate-logo_colour.png" alt="Carpenters Mate Logo">
 						</a>
-						<img src="<?php echo get_template_directory_uri(); ?>/images/20YearsSLG.png" alt="20YearsSLG">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/20YearsSLG.png" alt="20 Years SLG">
 				</div>
 
 				</div>
@@ -35,9 +35,9 @@
 
 							<li class="address">The Forge, Wheelers Lane, Linton, Kent, ME17 4BN</li>
 
-							<li class="phone"><a href="#">0845 241 9862</a> </li>
+							<li class="phone"><a href="tel:0845 241 9862">0845 241 9862</a> </li>
 
-							<li class="email"><a href="#">sales@oscsales.com</a> </li>
+							<li class="email"><a href="mailto:sales@oscsales.com">sales@oscsales.com</a> </li>
 
 
 						</ul>
@@ -155,7 +155,7 @@
 					</div>
 
 					<div class="col-md-5 signature_links">
-						<a href="#">Terms & Conditions</a>   |   <a href="#">Privacy Policy</a>  |   <a href="#">Returns & Refunds Policy</a>
+						<a href="/terms-conditions/">Terms & Conditions</a>   |   <a href="/privacy-policy/">Privacy Policy</a>  |   <a href="/refund_returns/">Returns & Refunds Policy</a>
 					</div>
 
 				</div>

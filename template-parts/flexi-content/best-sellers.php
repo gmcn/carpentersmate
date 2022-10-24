@@ -29,7 +29,7 @@
               <?php if ($thumb): ?>
                 <?php echo get_the_post_thumbnail($post_id, 'product-thumb'); ?>
               <?php else : ?>
-                <img src="/wp-content/uploads/woocommerce-placeholder-270x270.png" alt="woocommerce-placeholder">
+                <img src="/wp-content/uploads/woocommerce-placeholder-270x270.png" alt="woocommerce-placeholder" loading="lazy">
               <?php endif; ?>
             </div>
 

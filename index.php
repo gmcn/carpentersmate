@@ -33,32 +33,40 @@ get_header(); ?>
 	</header>
 
 	<div class="container content-area">
-		<div class="row" role="main">
+		<div id="ajax-posts" class="row" role="main" >
 
-		<?php
-		if ( have_posts() ) : ?>
+				<?php
+						$postsPerPage = 8;
+						$args = array(
+										'post_type' => 'post',
+										'posts_per_page' => $postsPerPage,
+										'orderby'   => 'date',
+										'post_status' => 'publish',
+						);
 
-		<?php 	/* Start the Loop */
-			while ( have_posts() ) : the_post();
+						$loop = new WP_Query($args);
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
+						while ($loop->have_posts()) : $loop->the_post();
+				?>
+
+				<?php
+
 				get_template_part( 'template-parts/content', get_post_format() );
 
-			endwhile;
 
-			the_posts_navigation();
+				 ?>
 
-		else :
+				 <?php endwhile; wp_reset_postdata(); ?>
 
-			get_template_part( 'template-parts/content', 'none' );
+				 <div class="container">
+					 <a id="more_posts" class="more-btn">
+						 Load more posts
+					 </a>
+				 </div>
 
-		endif; ?>
 
-	</div><!-- #main -->
+
+		 </div><!-- #main -->
 	</div><!-- #primary -->
 
 <?php

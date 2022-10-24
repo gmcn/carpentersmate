@@ -42,7 +42,7 @@ get_header(); ?>
 <article class="container single_post">
 
 	<div class="single_post__featured">
-		<img src="<?php echo get_the_post_thumbnail_url() ?>" alt="<?php echo the_title(); ?>">
+		<img src="<?php echo get_the_post_thumbnail_url() ?>" alt="<?php echo the_title(); ?>" loading="lazy">
 	</div>
 
 	<div class="single_post__meta">

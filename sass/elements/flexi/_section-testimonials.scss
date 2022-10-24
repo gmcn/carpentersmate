@@ -17,9 +17,22 @@
     font-weight: 700;
 
     p {
-      background: url(images/testimonial-bg.svg) center center no-repeat;
-      padding: 65px;
-      min-height: 130px;
+
+
+      padding: 25px;
+
+      @include md {
+        padding: 40px;
+      }
+
+      @include lg {
+        padding: 65px;
+        background: url(images/testimonial-bg.svg) center center no-repeat;
+        min-height: 130px;
+      }
+
+
+
     }
 
     p.byline {

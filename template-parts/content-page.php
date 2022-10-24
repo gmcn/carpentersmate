@@ -86,22 +86,8 @@
 			<h1><?php echo the_title(); ?></h1>
 
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-12">
 					<?php echo the_content(); ?>
-				</div>
-				<div class="col-md-6 button_recommend">
-
-					<div class="stockists_become_btn">
-						<span>Recommend a stockist</span>
-						<a href="/stockists/recommend-a-stockist/">Click Here</a>
-					</div>
-
-					<div class="stockists_recommend_btn">
-						<span>Become a Stockist</span>
-						<a href="/stockists/become-a-stockist/">Click Here</a>
-					</div>
-
-
 				</div>
 			</div>
 
@@ -125,9 +111,9 @@
 
 							<li class="address">The Forge, Wheelers Lane, <br> Linton, Kent, ME17 4BN</li>
 
-							<li class="phone"><a href="#">0845 241 9862</a> </li>
+							<li class="phone"><a href="tel:0845 241 9862">0845 241 9862</a> </li>
 
-							<li class="email"><a href="#">sales@oscsales.com</a> </li>
+							<li class="email"><a href="mail:sales@oscsales.com">sales@oscsales.com</a> </li>
 
 
 						</ul>
